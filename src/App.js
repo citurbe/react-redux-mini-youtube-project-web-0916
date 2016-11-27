@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchVideos('The Big Lebowski'))
+    this.props.dispatch(fetchVideos('Hack the Planet'))
   }
 
   swap(clicked){
@@ -31,11 +31,12 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <div className='two-thirds column'>
+        <div className='one-half column'>
+          <h1 className='centered-text'>Craig<span className='red-text'>Tube</span></h1>
         <MainPlayer video={this.props.player} />
-        <SearchBox load={this.load}/>
+        <SearchBox className='search-bar' load={this.load}/>
         </div>
-        <div className='one-third column'>
+        <div className='one-third offset-by-two column'>
         <Sidebar swap={this.swap} videos={this.props.sidebar} />
         </div>
       </div>

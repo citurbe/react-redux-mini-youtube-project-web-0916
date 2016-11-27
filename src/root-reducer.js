@@ -19,7 +19,7 @@ function sidebar(state = [], action){
         return item
       }
     })
-    
+
     return newState
     default:
       return state

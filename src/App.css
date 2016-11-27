@@ -3,6 +3,14 @@
   text-align: center;
 }
 
+.centered-text {
+  text-align: center;
+}
+
+.red-text {
+  color:red;
+}
+
 .search-bar input {
   width: 75%;
 }
