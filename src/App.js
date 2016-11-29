@@ -6,6 +6,7 @@ import {Sidebar} from './sidebar'
 import {connect} from 'react-redux'
 import {fetchVideos} from './actions'
 import {loadVideo} from './actions'
+import {bindActionCreators} from 'redux';
 
 class App extends Component {
 
@@ -20,12 +21,12 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchVideos('Hack the Planet'))
+    this.props.fetchVideos('Hack the Planet')
   }
 
   swap(clicked){
     let playing = this.props.player
-    this.props.dispatch(loadVideo(playing, clicked))
+    this.props.loadVideo(playing, clicked)
   }
 
   render() {
@@ -48,7 +49,11 @@ function mapStateToProps(state) {
   return state
 }
 
-const connector = connect(mapStateToProps)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({fetchVideos: fetchVideos, loadVideo: loadVideo}, dispatch)
+}
+
+const connector = connect(mapStateToProps, mapDispatchToProps)
 const connectedComponent = connector(App)
 
 export default connectedComponent;

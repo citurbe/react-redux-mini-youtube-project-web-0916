@@ -2,9 +2,9 @@ import React from 'react'
 
 export const Sidebar = (props) => {
 
-  function handleClick(event) {
-    let video = {id: event.id, thumbnail: event.thumbnail}
-    event.swap(video)
+  function handleClick(vid, event) {
+    let video = {id: vid.id, thumbnail: vid.thumbnail}
+    vid.swap(video)
   }
 
   return (
